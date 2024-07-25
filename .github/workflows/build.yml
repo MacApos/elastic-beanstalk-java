@@ -21,7 +21,7 @@ jobs:
         run: mvn clean install
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: target/elastic-beanstalk-java-0.0.1-SNAPSHOT.jar
@@ -36,8 +36,8 @@ jobs:
         with:
           name: artifact
 
-      - name: Beanstalk Deploy for JAR
-        uses: DylanBDev/beanstalk-deploy@initial
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v22
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
