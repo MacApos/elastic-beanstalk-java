@@ -20,7 +20,7 @@ jobs:
       - name: build with maven
         run: mvn clean install
 
-      - name: upload JAR
+      - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
           name: artifact
@@ -30,7 +30,11 @@ jobs:
     needs: build
     name: deploy
     runs-on: ubuntu-latest
-#    steps:
+    steps:
+      - name: Download JAR
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
 #      - name: Deploy to EB
 #        uses: einaregilsson/beanstalk-deploy@v22
 #        with:
