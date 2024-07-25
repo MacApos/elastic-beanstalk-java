@@ -11,10 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@main
 
-      - name: Set up JDK 17
+      - name: Setup Java JDK
         uses: actions/setup-java@v4.2.1
         with:
           java-version: 17
+          distribution: corretto
 
       - name: build with maven
         run: mvn clean install
