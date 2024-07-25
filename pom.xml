@@ -54,6 +54,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>elastic-beanstalk-java</finalName>
     </build>
 
 </project>
