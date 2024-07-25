@@ -19,12 +19,12 @@ jobs:
       - name: build with maven
         run: mvn clean install
 
-#      - name: upload JAR
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: artifact
-#          path: target/elastic-beanstalk-java-0.0.1-SNAPSHOT.jar
-#
+      - name: upload JAR
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: target/elastic-beanstalk-java-0.0.1-SNAPSHOT.jar
+
 #deploy:
 #  needs: build
 #  name: deploy
