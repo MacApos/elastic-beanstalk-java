@@ -21,3 +21,22 @@ jobs:
 
       - name: upload JAR
         uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: target/elastic-beanstalk-java-0.0.1-SNAPSHOT.jar
+
+deploy:
+  needs: build
+  name: deploy
+  runs-on: ubuntu-latest
+  steps:
+    name: Deploy to EB
+    uses: einaregilsson/beanstalk-deploy@v22
+    with:
+      aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      application_name: elastic-beanstalk-java
+      environment_name: Elastic-beanstalk-java-env
+      version_label: $ {{ github.SHA }}
+      region: us-central-1
+      deployment_package: elastic-beanstalk-java-0.0.1-SNAPSHOT.jar
