@@ -1,10 +1,10 @@
-package com.example.jardemo;
+package com.example.elasticbeanstalkjava;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JarDemoApplicationTests {
+class ElasticBeanstalkJavaApplicationTests {
 
     @Test
     void contextLoads() {
